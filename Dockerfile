@@ -23,5 +23,7 @@ RUN cd  /srv/CyberChef && \
     npm run postinstall && \
     grunt prod
 
+EXPOSE 8000
+
 WORKDIR /srv/CyberChef/build/prod
 ENTRYPOINT ["http-server", "-p", "8000"]
