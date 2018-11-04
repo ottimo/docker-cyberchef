@@ -4,7 +4,7 @@ MAINTAINER Martijn Pepping <martijn.pepping@automiq.nl>
 RUN addgroup cyberchef -S && \
     adduser cyberchef -G cyberchef -S && \
     apk update && \
-    apk add git nodejs python2&& \
+    apk add git nodejs python2 make && \
     rm -rf /var/cache/apk/* && \
     npm install -g grunt-cli && \
     npm install -g http-server
