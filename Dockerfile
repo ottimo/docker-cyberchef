@@ -10,18 +10,19 @@ RUN addgroup cyberchef -S && \
     npm install -g http-server
 
 RUN cd /srv && \
-    git clone -b master --depth=1 https://github.com/gchq/CyberChef.git && \
+    git clone -b master https://github.com/gchq/CyberChef.git && \
     cd CyberChef && \
     rm -rf .git && \
     apk del git && \
-    npm install && \
+    npm install --unsafe-perm && \
     chown -R cyberchef:cyberchef /srv/CyberChef
 
 USER cyberchef
 
 RUN cd  /srv/CyberChef && \
-    npm run postinstall && \
     grunt prod
+
+# npm run postinstall && \
 
 EXPOSE 8000
 
