@@ -22,6 +22,7 @@ RUN cd /srv && \
 USER cyberchef
 
 RUN cd  /srv/CyberChef && \
+    increase-memory-limit && \
     grunt prod
 
 # npm run postinstall && \
