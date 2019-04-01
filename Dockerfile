@@ -29,7 +29,7 @@ USER cyberchef
 
 WORKDIR /srv/CyberChef
 
-RUN npm run grunt prod
+RUN grunt prod
 
 # npm run postinstall && \
 
