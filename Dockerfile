@@ -10,7 +10,7 @@ RUN addgroup cyberchef -S && \
     npm install -g http-server && \
     npm install -g increase-memory-limit
 
-ENV NODE_OPTIONS=--max_old_space_size=8000
+ENV NODE_OPTIONS="--max_old_space_size=8000"
 
 RUN cd /srv && \
     git clone -b master https://github.com/gchq/CyberChef.git && \
