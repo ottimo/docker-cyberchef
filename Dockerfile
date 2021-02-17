@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:10-alpine
 MAINTAINER Martijn Pepping <martijn.pepping@automiq.nl>
 
 RUN addgroup cyberchef -S && \
@@ -29,11 +29,10 @@ USER cyberchef
 
 WORKDIR /srv/CyberChef
 
-RUN grunt prod
-
-# npm run postinstall && \
+RUN grunt prod && mkdir run && cp -a build/prod run/
 
 EXPOSE 8000
 
-WORKDIR /srv/CyberChef/build/prod
+#WORKDIR /srv/CyberChef/build/prod
+WORKDIR /srv/CyberChef/run/prod
 ENTRYPOINT ["http-server", "-p", "8000"]
